@@ -94,7 +94,7 @@ body {
 .label-text {
   margin-left: 0.5rem;
 }
-.radio-btns {
+.todos-container {
   display: flex;
   flex-direction: column;
 }
