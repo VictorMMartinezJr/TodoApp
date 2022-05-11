@@ -20,7 +20,7 @@ const showTodos = () => {
               <input type="checkbox" id=${i} class="radio-input" onclick="completeTodo(this)" ${isComplete}/>
               <p class="label-text ${isComplete}">${todo.name}</p>
             </label>
-            <i class="fa-solid fa-trash-can trash-icon"></i>
+            <i class="fa-solid fa-trash-can trash-icon" onclick="deleteTodo(${i})"></i>
             </div>`;
   });
   // Add todos from local storage to ui
@@ -44,6 +44,16 @@ const completeTodo = (todo) => {
   localStorage.setItem("todo-list", JSON.stringify(todos));
 };
 completeTodo();
+
+// Handle delete a todo
+const deleteTodo = (todoId) => {
+  todos.splice(todoId, 1);
+  // Save todos to local storage
+  localStorage.setItem("todo-list", JSON.stringify(todos));
+
+  // Show new todos
+  showTodos();
+};
 
 // Handle form submit
 const handleFormSubmit = () => {
