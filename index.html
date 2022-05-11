@@ -6,9 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/b049c2b1c2.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <!-- JavaScript -->
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>Hello</h1>
+    <!-- Todo start -->
+    <div class="todo-container">
+      <!-- Error start-->
+      <div class="error">
+        <i class="fa-solid fa-circle-xmark error-icon"></i>
+        <p class="error-text">Please type in a todo</p>
+      </div>
+      <!-- Error end -->
+
+      <div class="title-container">
+        <h1 class="title">My Todo List</h1>
+      </div>
+      <form class="form">
+        <div class="add-todo">
+          <input type="text" placeholder="Add a Todo" class="add-input" />
+          <button class="add-btn">Add Todo</button>
+        </div>
+        <div class="radio-btns">
+          <!-- Shows if no todos-->
+          <!-- <div class="empty-todos">
+            <img
+              src="/assets/clipboard.svg"
+              alt="purple clipboard"
+              class="clipboard"
+            />
+            <p>Add a Todo</p>
+          </div> -->
+          <div class="single-todo">
+            <label for="1">
+              <input type="radio" id="1" class="radio-input" />
+              <p class="label-text">Learn React</p>
+            </label>
+            <i class="fa-solid fa-trash-can trash-icon"></i>
+          </div>
+        </div>
+        <button class="new-todo">+ New Todo</button>
+      </form>
+    </div>
+    <!-- Todo end -->
   </body>
 </html>
