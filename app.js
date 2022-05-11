@@ -3,6 +3,7 @@
 const form = document.querySelector(".form");
 const addInput = document.querySelector(".add-input");
 const todosContainer = document.querySelector(".todos-container");
+const error = document.querySelector(".error");
 
 // Grab todo list from local storage
 let todos = JSON.parse(localStorage.getItem("todo-list"));
@@ -75,7 +76,10 @@ const handleFormSubmit = () => {
 
     let userTodo = addInput.value.trim();
 
-    if (!userTodo) return;
+    if (!userTodo) {
+      error.classList.add("error-active");
+      return;
+    }
 
     if (isEditedTask) {
       todos[editId].name = userTodo;
@@ -92,6 +96,9 @@ const handleFormSubmit = () => {
 
     // Clear input
     addInput.value = "";
+
+    // Clear error
+    error.classList.remove("error-active");
 
     // Save todos to local storage
     localStorage.setItem("todo-list", JSON.stringify(todos));

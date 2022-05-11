@@ -110,53 +110,6 @@ body {
   accent-color: var(--main-bg-color);
 }
 
-/* Show if todos empty */
-.empty-todos {
-  display: none;
-}
-.clipboard {
-  height: 100px;
-  animation: clipboardFloat 3s ease-in-out infinite;
-}
-.empty-todos p {
-  margin-top: 2rem;
-  font-size: 1.2rem;
-}
-@keyframes clipboardFloat {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(20%);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-.clipboard-active {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* New Todo btn */
-.new-todo {
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  border: none;
-  background-color: var(--main-bg-color);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  box-shadow: 0 0 15px var(--main-bg-color);
-  cursor: pointer;
-}
-
 /* Error */
 .error {
   background-color: #ff6b6b;
@@ -181,4 +134,10 @@ body {
 .error-active {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 1024px) {
+  .todo-container {
+    width: 800px;
+  }
 }
