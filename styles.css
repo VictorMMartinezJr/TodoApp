@@ -93,6 +93,10 @@ body {
 }
 .label-text {
   margin-left: 0.5rem;
+  user-select: none;
+}
+.checked {
+  text-decoration: line-through;
 }
 .todos-container {
   display: flex;
