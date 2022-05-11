@@ -1,5 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+:root {
+  --main-bg-color: #bfa2db;
+}
 *,
 *::before,
 *::after {
@@ -10,4 +13,164 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(to top, #d1d4dd, #d7dde8);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+/* Todos Start */
+.todo-container {
+  width: 80%;
+  position: relative;
+}
+/* Title */
+.title-container {
+  background-color: var(--main-bg-color);
+  color: #fff;
+  padding: 1rem 0;
+  border-radius: 5px;
+}
+.title {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Form */
+.form {
+  background-color: #fff;
+  margin-top: 1.5rem;
+  min-height: 300px;
+  border-radius: 5px;
+  color: #7f7c82;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+/* Add Todo */
+.add-todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1rem 0 1rem 2rem;
+  height: 30px;
+}
+.add-input {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  flex: 1;
+  border-radius: 5px;
+  border: 1px solid #7f7c82;
+  font-size: 0.9rem;
+}
+.add-input:focus {
+  outline: 1px solid var(--main-bg-color);
+}
+.add-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--main-bg-color);
+  border: none;
+  color: #fff;
+  margin: 0 2rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Radio inputs */
+.single-todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem 1rem 2rem;
+}
+.single-todo label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trash-icon {
+  cursor: pointer;
+}
+.label-text {
+  margin-left: 0.5rem;
+}
+.radio-btns {
+  display: flex;
+  flex-direction: column;
+}
+.radio-input {
+  accent-color: var(--main-bg-color);
+}
+
+/* Show if todos empty */
+.empty-todos {
+  display: none;
+}
+.clipboard {
+  height: 100px;
+  animation: clipboardFloat 3s ease-in-out infinite;
+}
+.empty-todos p {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+@keyframes clipboardFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.clipboard-active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* New Todo btn */
+.new-todo {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--main-bg-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 0 15px var(--main-bg-color);
+  cursor: pointer;
+}
+
+/* Error */
+.error {
+  background-color: #ff6b6b;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  width: 60%;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.error-icon {
+  margin-right: 1rem;
+}
+.error-active {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
