@@ -20,7 +20,10 @@ const showTodos = () => {
               <input type="checkbox" id=${i} class="radio-input" onclick="completeTodo(this)" ${isComplete}/>
               <p class="label-text ${isComplete}">${todo.name}</p>
             </label>
+            <span>
             <i class="fa-solid fa-trash-can trash-icon" onclick="deleteTodo(${i})"></i>
+            <i class="fa-solid fa-pen-to-square edit-icon" onclick="handleEdit(${i}, '${todo.name}')"></i>
+            </span>
             </div>`;
   });
   // Add todos from local storage to ui
@@ -55,6 +58,16 @@ const deleteTodo = (todoId) => {
   showTodos();
 };
 
+// Handle editing a todo
+let editId;
+let isEditedTask = false;
+
+const handleEdit = (id, todoName) => {
+  isEditedTask = true;
+  editId = id;
+  addInput.value = todoName;
+};
+
 // Handle form submit
 const handleFormSubmit = () => {
   form.addEventListener("submit", (e) => {
@@ -64,17 +77,21 @@ const handleFormSubmit = () => {
 
     if (!userTodo) return;
 
-    // Create empty array if local storage is empty
-    if (!todos) {
-      todos = [];
+    if (isEditedTask) {
+      todos[editId].name = userTodo;
+      isEditedTask = false;
+    } else {
+      // Create empty array if local storage is empty
+      if (!todos) {
+        todos = [];
+      }
+      // Todolist data being pushed to todos array
+      let todoInfo = { name: userTodo, status: "pending" };
+      todos.push(todoInfo);
     }
 
     // Clear input
     addInput.value = "";
-
-    // Todolist data being pushed to todos array
-    let todoInfo = { name: userTodo, status: "pending" };
-    todos.push(todoInfo);
 
     // Save todos to local storage
     localStorage.setItem("todo-list", JSON.stringify(todos));
